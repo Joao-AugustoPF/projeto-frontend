@@ -1,0 +1,33 @@
+.navbar {
+    background-color: #242424; /* Escolha uma cor de fundo para a navbar */
+    color: white;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar .logo {
+    font-size: 1.5rem; /* Ajuste conforme necessário */
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .navbar nav {
+    display: flex;
+  }
+  
+  .navbar nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px; /* Espaçamento entre os links */
+    padding: 10px 15px; /* Padding para tornar os links mais clicáveis */
+    transition: color 0.3s;
+  }
+  
+  .navbar nav a:hover {
+    color: #646cff; /* Cor ao passar o mouse, definida anteriormente */
+  }
+  
