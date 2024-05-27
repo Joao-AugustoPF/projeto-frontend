@@ -1,4 +1,4 @@
-import './products-list.css'
+import '../styles/products-list.css'
  
 export default function ProductsList ({products, onDelete, onEdit}) {
 

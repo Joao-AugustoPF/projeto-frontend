@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './products-form.css'
+import '../styles/products-form.css'
 import ProductsList from './ProductsList'
 
 const ProductsForm = () => {

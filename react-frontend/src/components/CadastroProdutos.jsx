@@ -1,5 +1,4 @@
 import ProductsForm from "./ProductsForm"
-import ProductsList from "./ProductsList"
 
 const CadastroProdutos = () => {
 
