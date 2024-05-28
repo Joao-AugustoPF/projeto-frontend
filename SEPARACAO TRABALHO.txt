@@ -1,0 +1,12 @@
+Criaremos um site para venda e manutenção de eletrônicos, com produtos e serviços, onde é possível realizar venda e registrar o estoque deles. Tendo como você ser um vendedor ou apenas um comprador, dependendo sua permissão escolhida no login.
+
+João Augusto Pupo Fagundes: 
+
+CRUD de Login/Registro;
+Permissionamento dos usuários;
+Lógica para salvar fotos dos produtos.
+
+Rhyan Willemann Orben:
+
+CRUD de serviços (Upload de vídeo/produto);
+CRUD de categoria, comentários(avaliações) e curtidas.
