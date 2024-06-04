@@ -1,20 +1,45 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import '../styles/login.css';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('Email:', email, 'Password:', password);
-    // Aqui você pode adicionar a lógica de autenticação
+    try {
+      const response = await axios.get(`http://localhost:3000/users?email=${email}`);
+      const users = response.data;
+
+      if (users.length === 0) {
+        setErrorMessage('Usuário não encontrado');
+      } else {
+        const user = users[0];
+        if (password === user.password) {
+          console.log('Login bem-sucedido! Usuário:', user);
+          // Salvar usuário no Local Storage e marcar como logado
+          localStorage.setItem('user', JSON.stringify(user));
+          localStorage.setItem('isLoggedIn', 'true');
+          // Aqui você pode redirecionar o usuário para a página principal ou dashboard
+          setErrorMessage('');
+          window.location.href = '/dashboard'; // Redireciona para o dashboard, por exemplo
+        } else {
+          setErrorMessage('Senha incorreta');
+        }
+      }
+    } catch (error) {
+      console.error('Erro ao fazer login:', error);
+      setErrorMessage('Erro ao fazer login');
+    }
   };
 
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>Login</h2>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <div className="input-group">
           <label htmlFor="email">Email</label>
           <input
