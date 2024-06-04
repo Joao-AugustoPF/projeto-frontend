@@ -1,0 +1,20 @@
+/* No seu arquivo CSS da Navbar, como navbar.css */
+.dropdown {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown button {
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.dropdown button:hover {
+    background-color: #f1f1f1;
+}

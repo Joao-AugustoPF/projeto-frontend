@@ -1,0 +1,46 @@
+/* MainPage.css */
+.product-list {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens passem para a próxima linha */
+    justify-content: center; /* Centraliza os produtos horizontalmente */
+    gap: 20px; /* Adiciona espaço entre os produtos */
+    padding: 20px;
+}
+
+.product {
+    flex: 1 1 200px; /* Cada produto tentará ocupar pelo menos 200px */
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo do produto verticalmente */
+}
+
+.product-image {
+    width: 100%; /* Faz a imagem preencher o container */
+    height: auto;
+    max-height: 150px; /* Limita a altura da imagem */
+}
+
+.product-details {
+    width: 100%;
+    text-align: center;
+}
+
+.product-name, .product-description, .product-price, .product-stock {
+    margin: 5px 0;
+}
+
+.btn-buy {
+    padding: 8px 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-buy:hover {
+    background-color: #218838;
+}

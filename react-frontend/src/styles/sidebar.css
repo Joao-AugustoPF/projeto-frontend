@@ -1,0 +1,46 @@
+/* sidebar.css */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh; /* Altura total da tela */
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #343a40;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.sidebar-logo {
+    margin: 0;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 24px;
+    background-color: #007bff;
+    color: white;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li a {
+    color: white;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.sidebar-menu li a:hover {
+    background-color: #007bff;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f8f9fa; /* Um fundo claro para o conteúdo principal */
+}
