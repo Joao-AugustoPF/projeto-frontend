@@ -1,14 +1,36 @@
 import { useState } from 'react'
 import '../styles/products-form.css'
 import ProductsList from './ProductsList'
+import axios from 'axios'
 
 const ProductsForm = () => {
     const [id, setId] = useState(1)
     const [name, setName] = useState('')
     const [preco, setPreco] = useState(null)
     const [estoque, setEstoque] = useState(null)
+    const [selectedFile, setSelectedFile] = useState(null)
     const [products, setProducts] = useState([])
     const [edit, setEdit] = useState(false)
+
+    const handleFileChange = (event) => {
+        setSelectedFile(event.target.files[0]) 
+    }
+
+    const handleUploadChange = async() => {
+        if(!selectedFile) {
+            alert("Selecione um arquivo!")
+        }
+
+        const formData = new FormData()
+        formData.append("image", selectedFile)
+
+        try {
+            const response = await axios.post("http://localhost:3001/upload", formData)
+            console.log(response.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     const clearValues = () => {
         setEstoque('')
@@ -64,6 +86,7 @@ const ProductsForm = () => {
                 <input type="text" value={name} name="nome" onChange={(e) => setName(e.target.value)} required />
                 <label htmlFor="preco">Preço:</label>
                 <input type="number" value={preco} name="preco" onChange={(e) => setPreco(e.target.value)}  required />
+                <input type="file" onChange={handleUploadChange}/>
                 <label htmlFor="estoque">Estoque:</label>
                 <input type="number" name="estoque" value={estoque} onChange={(e) => setEstoque(e.target.value)} required />
                 <input type="submit" value="Cadastrar" />
