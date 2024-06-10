@@ -1,6 +1,7 @@
 // MainPage.jsx
 import Product from './Product';
 import '../styles/MainPage.css';
+import BannerComponent from './Banner';
 
 const MainPage = () => {
     const products = [
@@ -104,6 +105,8 @@ const MainPage = () => {
     
 
     return (
+        <div>
+            <BannerComponent />
         <div className="product-list">
             {products.map(product => (
                 <Product
@@ -115,6 +118,7 @@ const MainPage = () => {
                     imageUrl={product.imageUrl}
                 />
             ))}
+        </div>
         </div>
     );
 };
