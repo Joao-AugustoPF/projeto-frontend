@@ -27,6 +27,7 @@ const ProductsForm = () => {
 
         try {
             const response = await axios.post("http://localhost:3001/upload", formData)
+            console.log(response.data)
             setImagePath(response.data.path)
         } catch (error) {
             console.log(error)
@@ -39,12 +40,13 @@ const ProductsForm = () => {
         setName('')
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-
+        
         if(!edit) {
             setId(v => v + 1)
-            setProducts([...products, {id, name, preco, estoque, imagePath}])
+            await handleUploadChange()
+            
 
             const newProduct = {
                 name: name,
@@ -52,8 +54,9 @@ const ProductsForm = () => {
                 estoque: estoque,
                 imagePath: imagePath
               };
-            handleUploadChange()
-            axios.post("http://localhost:3000/products", newProduct)
+
+            const response = await axios.post("http://localhost:3000/products", newProduct)
+            setProducts([...products, {id: response.data.id, name: response.data.name, preco: response.data.preco, estoque: response.data.estoque, imagePath: response.data.imagePath}])
         }
 
         if(edit) {
@@ -72,7 +75,6 @@ const ProductsForm = () => {
 
     const handleEdit = (productId) => {
         const product = products.find(prod => prod.id === productId)
-        setId(product.id)
         setName(product.name)
         setEstoque(product.estoque)
         setPreco(product.preco)

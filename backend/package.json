@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "start": "concurrently \"yarn json-server\" \"yarn dev\"",
-    "dev": "nodemon src/app.js",
+    "dev": "node src/app.js",
     "lint": "eslint . --ext .ts",
     "json-server": "json-server --watch db.json --static ./public",
     "test": "echo \"Error: no test specified\" && exit 1"
