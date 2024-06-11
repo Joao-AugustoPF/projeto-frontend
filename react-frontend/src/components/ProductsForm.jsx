@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../styles/products-form.css'
 import ProductsList from './ProductsList'
 import axios from 'axios'
@@ -9,6 +9,7 @@ const ProductsForm = () => {
     const [preco, setPreco] = useState(null)
     const [estoque, setEstoque] = useState(null)
     const [selectedFile, setSelectedFile] = useState(null)
+    const [imagePath, setImagePath] = useState('')
     const [products, setProducts] = useState([])
     const [edit, setEdit] = useState(false)
 
@@ -16,7 +17,7 @@ const ProductsForm = () => {
         setSelectedFile(event.target.files[0]) 
     }
 
-    const handleUploadChange = async() => {
+    const handleUploadChange = async () => {
         if(!selectedFile) {
             alert("Selecione um arquivo!")
         }
@@ -26,7 +27,7 @@ const ProductsForm = () => {
 
         try {
             const response = await axios.post("http://localhost:3001/upload", formData)
-            console.log(response.data)
+            setImagePath(response.data.path)
         } catch (error) {
             console.log(error)
         }
@@ -43,12 +44,22 @@ const ProductsForm = () => {
 
         if(!edit) {
             setId(v => v + 1)
-            setProducts([...products, {id, name, preco, estoque}])
+            setProducts([...products, {id, name, preco, estoque, imagePath}])
+
+            const newProduct = {
+                name: name,
+                preco: preco,
+                estoque: estoque,
+                imagePath: imagePath
+              };
+            handleUploadChange()
+            axios.post("http://localhost:3000/products", newProduct)
         }
 
         if(edit) {
             const productIndex = products.findIndex(prod => prod.id === id)
             products[productIndex] = {id, name, preco, estoque}
+            
             setProducts(products)
             setEdit(false)
         }
@@ -68,6 +79,15 @@ const ProductsForm = () => {
         setEdit(true)
     }
 
+    useEffect(() => {
+        const fetchProducts = async () => {
+            const produtos = await axios.get("http://localhost:3000/products")
+            console.log(produtos)
+            setProducts(produtos.data)
+        }
+        fetchProducts()
+    }, [])
+
     return (
     <>
 
@@ -86,7 +106,7 @@ const ProductsForm = () => {
                 <input type="text" value={name} name="nome" onChange={(e) => setName(e.target.value)} required />
                 <label htmlFor="preco">Preço:</label>
                 <input type="number" value={preco} name="preco" onChange={(e) => setPreco(e.target.value)}  required />
-                <input type="file" onChange={handleUploadChange}/>
+                <input type="file" onChange={handleFileChange}/>
                 <label htmlFor="estoque">Estoque:</label>
                 <input type="number" name="estoque" value={estoque} onChange={(e) => setEstoque(e.target.value)} required />
                 <input type="submit" value="Cadastrar" />

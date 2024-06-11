@@ -1,6 +1,7 @@
 const multer = require('multer');
 const express = require('express');
 const path = require('path')
+const cors = require('cors')
 
 // Configuração do storage do multer para especificar o destino e o nome do arquivo
 const storage = multer.diskStorage({
@@ -17,13 +18,17 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+const corsOptions = {
+    origin: 'http://localhost:5173',
+}
 
 const app = express();
-
+  
+app.use(cors(corsOptions))
 // Rota para upload de arquivos
 app.post('/upload', upload.single('image'), (req, res) => {
     if (req.file) {
-        res.json({ message: 'Imagem carregada com sucesso!', path: req.file.path });
+        res.status(200).json({ message: 'Imagem carregada com sucesso!', path: req.file.path });
     } else {
         res.status(400).json({ message: 'Erro ao fazer upload da imagem' });
     }
