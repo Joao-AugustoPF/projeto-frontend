@@ -10,7 +10,6 @@ const useAuth = () => {
 
 	if (_user) {
 		user = JSON.parse(_user)
-		console.log("user", user)
 	}
 	if (user) {
 		return {
@@ -27,7 +26,6 @@ const useAuth = () => {
 
 const ProtectedRoutes = (props) => {
 	const {auth, role} = useAuth()
-    console.log(props)
 	//if the role require  d is there or not
 	if (props.roleRequired) {
 		return auth ? (

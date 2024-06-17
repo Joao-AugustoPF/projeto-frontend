@@ -13,7 +13,6 @@ function Registro() {
       alert('As senhas não coincidem.');
       return;
     }
-    console.log('Username:', username, 'Email:', email, 'Password:', password);
     // Aqui você pode adicionar a lógica de registro
   };
 

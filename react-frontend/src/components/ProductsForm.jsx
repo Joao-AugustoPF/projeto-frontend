@@ -27,8 +27,9 @@ const ProductsForm = () => {
 
         try {
             const response = await axios.post("http://localhost:3001/upload", formData)
-            console.log(response.data)
+            console.log(response)
             setImagePath(response.data.path)
+            console.log(imagePath)
         } catch (error) {
             console.log(error)
         }
@@ -46,6 +47,7 @@ const ProductsForm = () => {
         if(!edit) {
             setId(v => v + 1)
             await handleUploadChange()
+            console.log(imagePath)
             
 
             const newProduct = {
@@ -84,7 +86,6 @@ const ProductsForm = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             const produtos = await axios.get("http://localhost:3000/products")
-            console.log(produtos)
             setProducts(produtos.data)
         }
         fetchProducts()

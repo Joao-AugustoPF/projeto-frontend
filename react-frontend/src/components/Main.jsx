@@ -8,6 +8,16 @@ const MainPage = () => {
     // Estado para armazenar os produtos
     const [products, setProducts] = useState([]);
 
+    const formatImagePath = (path) => {
+        return path.replace('public\\', '');
+    };
+
+    const imageUrl = (imagePath) => {
+        const url = "http://localhost:3000/"
+        const path = formatImagePath(imagePath)
+        return `${url}${path}`
+    }
+
     // Função para buscar produtos
     useEffect(() => {
         axios.get('http://localhost:3000/products')
@@ -27,7 +37,7 @@ const MainPage = () => {
                         name={product.name}
                         price={product.preco}
                         stock={product.estoque}
-                        imageUrl={product.imagePath}
+                        imageUrl={imageUrl(product.imagePath)}
                     />
                 ))}
             </div>
