@@ -3,10 +3,21 @@ import axios from 'axios';
 import Product from './Product';
 import '../styles/MainPage.css';
 import BannerComponent from './Banner';
+import Modal from './Modal';
 
 const MainPage = () => {
     // Estado para armazenar os produtos
     const [products, setProducts] = useState([]);
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleBuyClick = () => {
+      setIsModalOpen(true);
+    };
+  
+    const handleCloseModal = () => {
+      setIsModalOpen(false);
+    };
 
     const formatImagePath = (path) => {
         return path.replace('public\\', '');
@@ -32,13 +43,17 @@ const MainPage = () => {
             <BannerComponent />
             <div className="product-list">
                 {products.map(product => (
-                    <Product
-                        key={product.id}
-                        name={product.name}
-                        price={product.preco}
-                        stock={product.estoque}
-                        imageUrl={imageUrl(product.imagePath)}
-                    />
+                    <>
+                        <Product
+                            key={product.id}
+                            name={product.name}
+                            price={product.preco}
+                            stock={product.estoque}
+                            onClickBuy={handleBuyClick}
+                            imageUrl={imageUrl(product.imagePath)}
+                        />
+                        <Modal isOpen={isModalOpen} onClose={handleCloseModal} product={product}/>
+                    </>
                 ))}
             </div>
         </div>

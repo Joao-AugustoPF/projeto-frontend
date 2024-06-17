@@ -1,7 +1,7 @@
-// Product.jsx
+/* eslint-disable react/prop-types */
 import '../styles/product.css';
 
-const Product = ({ name, description, price, stock, imageUrl }) => {
+const Product = ({ name, description, price, stock, imageUrl, onClickBuy }) => {
     return (
         <div className="product">
             <img src={imageUrl} alt={name} className="product-image" />
@@ -10,7 +10,7 @@ const Product = ({ name, description, price, stock, imageUrl }) => {
                 <p className="product-description">{description}</p>
                 <p className="product-price">Preço: ${price}</p>
                 <p className="product-stock">Quantidade em estoque: {stock}</p>
-                <button className="btn-buy">Comprar</button>
+                <button className="btn-buy" onClick={onClickBuy}>Comprar</button>
             </div>
         </div>
     );

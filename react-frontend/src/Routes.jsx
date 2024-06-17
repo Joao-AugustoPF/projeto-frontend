@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar"
 import Login from "./components/Login"
 import WelcomePage from "./components/Welcome"
 import ProtectedRoutes from "./components/ProtectedRoutes"
+import Registro from "./components/Registro"
 
 const MainRoutes = () => (
 	<Routes>
@@ -21,6 +22,7 @@ const MainRoutes = () => (
 			</Route>
 		</Route>
         <Route path="/login" element={<Login />} />
+        <Route path="/registro" element={<Registro />} />
 	</Routes>
 )
 

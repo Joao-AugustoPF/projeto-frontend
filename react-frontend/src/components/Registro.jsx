@@ -1,32 +1,51 @@
-import React, { useState } from 'react';
-import '../styles/registro.css';  // Assumindo que você criará um arquivo CSS similar ao do login
+import { useState } from 'react';
+import axios from 'axios';
+import '../styles/registro.css';
 
-function Registro() {
-  const [username, setUsername] = useState('');
+function Register() {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    if(password !== confirmPassword) {
-      alert('As senhas não coincidem.');
-      return;
+    try {
+      const response = await axios.get(`http://localhost:3000/users?email=${email}`);
+      const users = response.data;
+
+      if (users.length > 0) {
+        setErrorMessage('Email já registrado');
+      } else {
+        const newUser = { name, email, password };
+        await axios.post('http://localhost:3000/users', newUser);
+        setSuccessMessage('Usuário registrado com sucesso');
+        setErrorMessage('');
+        // Limpa os campos do formulário
+        setName('');
+        setEmail('');
+        setPassword('');
+      }
+    } catch (error) {
+      console.error('Erro ao registrar usuário:', error);
+      setErrorMessage('Erro ao registrar usuário');
     }
-    // Aqui você pode adicionar a lógica de registro
   };
 
   return (
-    <div className="register-container">
-      <form className="register-form" onSubmit={handleSubmit}>
-        <h2>Registro</h2>
+    <div className="auth-container">
+      <form className="auth-form" onSubmit={handleSubmit}>
+        <h2>Registrar</h2>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        {successMessage && <p className="success-message">{successMessage}</p>}
         <div className="input-group">
-          <label htmlFor="username">Nome de usuário</label>
+          <label htmlFor="name">Nome</label>
           <input
             type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
@@ -50,20 +69,10 @@ function Registro() {
             required
           />
         </div>
-        <div className="input-group">
-          <label htmlFor="confirm-password">Confirme a senha</label>
-          <input
-            type="password"
-            id="confirm-password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="register-button">Registrar</button>
+        <button type="submit" className="auth-button">Registrar</button>
       </form>
     </div>
   );
 }
 
-export default Registro;
+export default Register;

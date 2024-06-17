@@ -6,29 +6,42 @@
       "email": "joao@gmail.com",
       "password": "1234",
       "role": "master"
+    },
+    {
+      "id": "549a",
+      "name": "Teste",
+      "email": "teste@gmail.com",
+      "password": "123456"
     }
   ],
   "products": [
     {
-      "id": "2e3d",
-      "name": "Produto 12",
+      "id": "b301",
+      "name": "Produto 1",
       "preco": "2",
       "estoque": "2",
-      "imagePath": "public\\images\\image-1718073417795-46757928.png"
+      "imagePath": ""
     },
     {
-      "id": "0deb",
-      "name": "Produto 3",
-      "preco": "2",
+      "id": "3c30",
+      "name": "Produto 1",
+      "preco": "20",
       "estoque": "2",
-      "imagePath": "public\\images\\image-1718073511041-485589378.png"
+      "imagePath": "public\\images\\image-1718073923537-544082402.png"
     },
     {
-      "id": "4acd",
-      "name": "2",
-      "preco": "2",
+      "id": "5e7f",
+      "name": "Produto 1",
+      "preco": "8",
+      "estoque": "7",
+      "imagePath": "public\\images\\image-1718073966350-867636234.png"
+    },
+    {
+      "id": "4ece",
+      "name": "Teste",
+      "preco": "8",
       "estoque": "2",
-      "imagePath": "public\\images\\image-1718073523903-925614668.png"
+      "imagePath": "public\\images\\image-1718073981339-975725493.png"
     }
   ]
 }
