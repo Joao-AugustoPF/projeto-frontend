@@ -1,4 +1,3 @@
-import React from 'react';
 import '../styles/welcome.css';  // Importando o arquivo CSS
 
 function WelcomePage() {

@@ -9,6 +9,7 @@ import Login from "./components/Login"
 import WelcomePage from "./components/Welcome"
 import ProtectedRoutes from "./components/ProtectedRoutes"
 import ProductsList from "./components/ProductsList"
+import Registro from "./components/Registro"
 
 const MainRoutes = () => (
 	<Routes>
@@ -23,7 +24,8 @@ const MainRoutes = () => (
 			</Route>
 		</Route>
         <Route path="/login" element={<Login />} />
-		</Routes>
+        <Route path="/registro" element={<Registro />} />
+	</Routes>
 )
 
 export default MainRoutes
