@@ -13,6 +13,26 @@ export default function ProductsList({ products, onDelete, onEdit }) {
         return `${url}${path}`
     }
 
+    const handleDelete = (productId) => {
+        setProducts(currentProducts => currentProducts.filter(product => product.id !== productId));
+    }
+
+    const handleEdit = (productId) => {
+        const product = products.find(prod => prod.id === productId)
+        setName(product.name)
+        setEstoque(product.estoque)
+        setPreco(product.preco)
+        setEdit(true)
+    }
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            const produtos = await axios.get("http://localhost:3000/products")
+            setProducts(produtos.data)
+        }
+        fetchProducts()
+    }, [])
+
     return (
         <>
             <table className='table'>

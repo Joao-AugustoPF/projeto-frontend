@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar"
 import Login from "./components/Login"
 import WelcomePage from "./components/Welcome"
 import ProtectedRoutes from "./components/ProtectedRoutes"
+import ProductsList from "./components/ProductsList"
 
 const MainRoutes = () => (
 	<Routes>
@@ -17,11 +18,12 @@ const MainRoutes = () => (
 				<Route path="/dashboard" element={<Root />}>
 					<Route path="" element={<WelcomePage />} />
 					<Route path="cadastro" element={<CadastroProdutos />} />
+					<Route path="listagem" element={<ProductsList />} />
 				</Route>
 			</Route>
 		</Route>
         <Route path="/login" element={<Login />} />
-	</Routes>
+		</Routes>
 )
 
 export default MainRoutes
