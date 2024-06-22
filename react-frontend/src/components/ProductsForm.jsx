@@ -97,7 +97,7 @@ const ProductsForm = () => {
 
         };
 
-        useEffect(() => { if (submitted) { navigate("/dashboard/listagem", { replace: true} ) }; }, [submitted, navigate] );
+        useEffect(() => { if (submitted) { navigate("/dashboard/listagem/produtos", { replace: true} ) }; }, [submitted, navigate] );
     
     return (
     <>  

@@ -18,9 +18,15 @@ const MainRoutes = () => (
 				<Route path="/dashboard" element={<ProtectedRoutes roleRequired="master" />}>
 				<Route path="/dashboard" element={<Root />}>
 					<Route path="" element={<WelcomePage />} />
-					<Route path="cadastro" element={<ProductsForm />} />
+					<Route path="cadastro">
+						<Route path="produtos" element={<ProductsForm />}/>
+						<Route path="servicos" element="" />
+					</Route>
 					<Route path="edit/:id" element={<ProductsForm />} />
-					<Route path="listagem" element={<ProductsList />} />
+					<Route path="listagem">
+						<Route path="produtos" element={<ProductsList />} />
+						<Route path="servicos" element="" />
+					</Route>
 				</Route>
 			</Route>
 		</Route>
