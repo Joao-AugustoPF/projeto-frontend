@@ -30,7 +30,7 @@ export default function ServicesList() {
 
     useEffect(() => {
         const fetchServices = async () => {
-            const response = await axios.get("http:localhost:3000/services/")
+            const response = await axios.get("http://localhost:3000/services")
             setServices(response.data)
         }
         fetchServices()

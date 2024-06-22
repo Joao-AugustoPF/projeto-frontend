@@ -43,7 +43,7 @@ const ServicesForm = () => {
         formData.append("image", selectedFile)
     
         try {
-            const response = await axios.post("http://localhost:3000/upload", formData, {
+            const response = await axios.post("http://localhost:3001/upload", formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -52,7 +52,7 @@ const ServicesForm = () => {
             return response.data.path
         } catch (error) {
             console.log(error);
-        };
+        }
         
     }
 
@@ -80,7 +80,7 @@ const ServicesForm = () => {
                 imagePath: imagePathTemp
             };
 
-            await axios.post("http>//localhost:3000/services", newService)
+            await axios.post("http://localhost:3000/services", newService)
         } else {
             const updatedService = {
                 name: name,
@@ -96,7 +96,7 @@ const ServicesForm = () => {
 
     };
 
-    useEffect(() => { if (submitted) { navigate("/dashboard/listagem/services", { replace: true } ) }; }, [submitted, navigate] );
+    useEffect(() => { if (submitted) { navigate("/dashboard/listagem/services", { replace: true } ) } }, [submitted, navigate] );
 
     return (
         <>
