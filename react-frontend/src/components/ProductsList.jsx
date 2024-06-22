@@ -1,9 +1,26 @@
 /* eslint-disable react/prop-types */
 import '../styles/products-list.css';
+import axios from 'axios'
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 
-export default function ProductsList({ products, onDelete, onEdit }) {
+export default function ProductsList({ onDelete }) {
+    
+    const navigate = useNavigate();
+    const [products, setProducts] = useState([]);
+
+    const handleEdit = (productId) => {
+        navigate(`/dashboard/edit/${productId}`, { replace: true });
+    };
+
+    const handleDelete = async (productId) => {
+        await axios.delete(`http://localhost:3000/products/${productId}`);
+        setProducts(products.filter( product => product.id !== productId));
+    }
+    
     // Função para remover "public\\" do caminho e preparar o caminho correto para o src da tag img
     const formatImagePath = (path) => {
+        if (!path) return ''; //Verificação se o path está vazio
         return path.replace('public\\', '');
     };
 
@@ -13,28 +30,17 @@ export default function ProductsList({ products, onDelete, onEdit }) {
         return `${url}${path}`
     }
 
-    const handleDelete = (productId) => {
-        setProducts(currentProducts => currentProducts.filter(product => product.id !== productId));
-    }
-
-    const handleEdit = (productId) => {
-        const product = products.find(prod => prod.id === productId)
-        setName(product.name)
-        setEstoque(product.estoque)
-        setPreco(product.preco)
-        setEdit(true)
-    }
-
     useEffect(() => {
         const fetchProducts = async () => {
-            const produtos = await axios.get("http://localhost:3000/products")
-            setProducts(produtos.data)
+            const response = await axios.get("http://localhost:3000/products")
+            setProducts(response.data)
         }
         fetchProducts()
     }, [])
 
     return (
         <>
+            <h1>Produtos</h1>
             <table className='table'>
                 <thead className="t-header">
                     <tr>
@@ -57,8 +63,8 @@ export default function ProductsList({ products, onDelete, onEdit }) {
                                 <img src={imageUrl(product.imagePath)} alt={product.name} style={{ width: '100px', height: '100px' }} />
                             </td>
                             <td className="actions">
-                                <button onClick={() => onEdit(product.id)}>Editar</button>
-                                <button onClick={() => onDelete(product.id)}>Excluir</button>
+                                <button onClick={() => handleEdit(product.id)}>Editar</button>
+                                <button onClick={() => handleDelete(product.id)}>Excluir</button>
                             </td>
                         </tr>
                     ))}

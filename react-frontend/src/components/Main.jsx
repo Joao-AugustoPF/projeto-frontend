@@ -20,6 +20,7 @@ const MainPage = () => {
     };
 
     const formatImagePath = (path) => {
+        if (!path) return '';
         return path.replace('public\\', '');
     };
 

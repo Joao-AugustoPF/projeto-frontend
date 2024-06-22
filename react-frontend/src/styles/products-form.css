@@ -31,3 +31,7 @@
 .container input[type="submit"]:hover {
     background-color: #0056b3;
 }
+.container input[type="file"] {
+    font-size: 16px;
+    margin-bottom: 5px;
+}

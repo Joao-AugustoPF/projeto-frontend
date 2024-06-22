@@ -2,7 +2,6 @@
 import {Routes, Route} from "react-router-dom"
 
 import Root from "./routes/root"
-import CadastroProdutos from "./components/CadastroProdutos"
 import Main from "./components/Main"
 import Navbar from "./components/Navbar"
 import Login from "./components/Login"
@@ -10,6 +9,7 @@ import WelcomePage from "./components/Welcome"
 import ProtectedRoutes from "./components/ProtectedRoutes"
 import ProductsList from "./components/ProductsList"
 import Registro from "./components/Registro"
+import ProductsForm from "./components/ProductsForm"
 
 const MainRoutes = () => (
 	<Routes>
@@ -18,7 +18,8 @@ const MainRoutes = () => (
 				<Route path="/dashboard" element={<ProtectedRoutes roleRequired="master" />}>
 				<Route path="/dashboard" element={<Root />}>
 					<Route path="" element={<WelcomePage />} />
-					<Route path="cadastro" element={<CadastroProdutos />} />
+					<Route path="cadastro" element={<ProductsForm />} />
+					<Route path="edit/:id" element={<ProductsForm />} />
 					<Route path="listagem" element={<ProductsList />} />
 				</Route>
 			</Route>
