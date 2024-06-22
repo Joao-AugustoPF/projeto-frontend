@@ -43,7 +43,7 @@ const ProductsForm = () => {
         formData.append("image", selectedFile)
 
         try {
-            const response = await axios.post("http://localhost:3000/upload", formData,{
+            const response = await axios.post("http://localhost:3000/upload", formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -97,7 +97,7 @@ const ProductsForm = () => {
 
         };
 
-        useEffect(() => { if (submitted) { navigate("/dashboard/listagem/produtos", { replace: true} ) }; }, [submitted, navigate] );
+        useEffect(() => { if (submitted) { navigate("/dashboard/listagem/produtos", { replace: true } ) }; }, [submitted, navigate] );
     
     return (
     <>  

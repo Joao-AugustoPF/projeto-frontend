@@ -10,6 +10,8 @@ import ProtectedRoutes from "./components/ProtectedRoutes"
 import ProductsList from "./components/ProductsList"
 import Registro from "./components/Registro"
 import ProductsForm from "./components/ProductsForm"
+import ServicesForm from "./components/ServicesForm"
+import ServicesList from "./components/ServicesList"
 
 const MainRoutes = () => (
 	<Routes>
@@ -20,12 +22,12 @@ const MainRoutes = () => (
 					<Route path="" element={<WelcomePage />} />
 					<Route path="cadastro">
 						<Route path="produtos" element={<ProductsForm />}/>
-						<Route path="servicos" element="" />
+						<Route path="servicos" element={<ServicesForm />} />
 					</Route>
 					<Route path="edit/:id" element={<ProductsForm />} />
 					<Route path="listagem">
 						<Route path="produtos" element={<ProductsList />} />
-						<Route path="servicos" element="" />
+						<Route path="servicos" element={<ServicesList />} />
 					</Route>
 				</Route>
 			</Route>

@@ -1,4 +1,20 @@
 {
   "users": [],
-  "products": []
+  "products": [
+    {
+      "id": "c79d",
+      "name": "Banana",
+      "preco": "1",
+      "estoque": "213",
+      "imagePath": ""
+    }
+  ],
+  "services": [
+    {
+      "id": "w85e",
+      "name": "serviço",
+      "preco": "12",
+      "imagePath": ""
+    }
+  ]
 }
