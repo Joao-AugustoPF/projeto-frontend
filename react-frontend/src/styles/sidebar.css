@@ -7,7 +7,7 @@
 .second-container {
     display: flex;
     flex-direction: column;
-    margin-left: 20px;
+    text-align: center;
     font-size: 16px;
 }
 
@@ -54,6 +54,10 @@
     width: 100%;
 }
 
+.sidebar-menu-active {
+    background-color: #003d7e;
+}
+
 .sidebar-menu li a {
     color: white;
     display: block;
@@ -69,4 +73,32 @@
     flex-grow: 1;
     padding: 20px;
     background-color: #f8f9fa; /* Um fundo claro para o conteúdo principal */
+}
+
+@keyframes slideDown {
+    from {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: auto;
+      opacity: 1;
+    }
+}
+  
+.arrow {
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    margin-left: 15px;
+    padding: 3px;
+    transition: transform 0.3s;
+  }
+  
+.right {
+    transform: rotate(45deg);
+}
+  
+.down {
+    transform: rotate(225deg);
 }
