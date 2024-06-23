@@ -8,28 +8,6 @@
       "role": "master"
     }
   ],
-  "products": [
-    {
-      "id": "cbb2",
-      "name": "Produto 1",
-      "preco": "52.99",
-      "estoque": "7",
-      "imagePath": "public\\images\\image-1719118040888-25056250.jpg"
-    },
-    {
-      "id": "75f2",
-      "name": "Produto 2",
-      "preco": "60",
-      "estoque": "78",
-      "imagePath": "public\\images\\image-1719118075731-142316032.png"
-    }
-  ],
-  "services": [
-    {
-      "id": "5917",
-      "name": "Montagem e Manutenção",
-      "preco": "122.90",
-      "imagePath": "public\\images\\image-1719118022327-268962422.jpeg"
-    }
-  ]
+  "products": [],
+  "services": []
 }
