@@ -1,4 +1,4 @@
-import '../styles/sidebar.css'; // Importando o arquivo CSS
+import '../styles/sidebar.css';
 import { Outlet, useLocation, Link } from "react-router-dom";
 import { useState } from 'react';
 

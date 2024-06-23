@@ -7,7 +7,6 @@ import Modal from './Modal';
 import { imageUrl } from '../utils/formatUrlImage';
 
 const MainPage = () => {
-    // Estado para armazenar os produtos
     const [products, setProducts] = useState([]);
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,14 +19,13 @@ const MainPage = () => {
       setIsModalOpen(false);
     };
 
-    // Função para buscar produtos
     useEffect(() => {
         axios.get('http://localhost:3000/products')
             .then(response => {
-                setProducts(response.data); // Atualizar o estado com os produtos recebidos
+                setProducts(response.data);
             })
             .catch(error => console.error('Erro ao buscar produtos:', error));
-    }, []); // O array vazio garante que o efeito será executado apenas uma vez após o render inicial
+    }, []);
 
     return (
         <div>

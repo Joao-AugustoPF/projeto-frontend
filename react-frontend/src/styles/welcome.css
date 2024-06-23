@@ -1,21 +1,19 @@
-/* WelcomePage.css */
 .welcome-container {
-    height: 100vh; /* Altura total da tela */
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background: linear-gradient(to right, #6a11cb, #2575fc);  */
     color: black;
     text-align: center;
 }
 
 .welcome-container h1 {
-    font-size: 3rem; /* Tamanho do texto para o cabeçalho */
+    font-size: 3rem;
     margin-bottom: 20px;
 }
 
 .welcome-container p {
-    font-size: 1.5rem; /* Tamanho do texto para a mensagem */
-    max-width: 600px; /* Limita a largura do parágrafo */
+    font-size: 1.5rem;
+    max-width: 600px;
 }

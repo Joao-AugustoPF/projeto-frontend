@@ -21,8 +21,8 @@ function Register() {
         const newUser = { name, email, password };
         await axios.post('http://localhost:3000/users', newUser);
         setSuccessMessage('Usuário registrado com sucesso');
+        
         setErrorMessage('');
-        // Limpa os campos do formulário
         setName('');
         setEmail('');
         setPassword('');

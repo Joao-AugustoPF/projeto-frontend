@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #242424; /* Escolha uma cor de fundo para a navbar */
+    background-color: #242424;
     color: white;
     height: 60px;
     display: flex;
@@ -10,7 +10,7 @@
   }
   
   .navbar .logo {
-    font-size: 1.5rem; /* Ajuste conforme necessário */
+    font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
   }
@@ -22,12 +22,12 @@
   .navbar nav a {
     color: white;
     text-decoration: none;
-    margin-left: 20px; /* Espaçamento entre os links */
-    padding: 10px 15px; /* Padding para tornar os links mais clicáveis */
+    margin-left: 20px; 
+    padding: 10px 15px; 
     transition: color 0.3s;
   }
   
   .navbar nav a:hover {
-    color: #646cff; /* Cor ao passar o mouse, definida anteriormente */
+    color: #646cff;
   }
   

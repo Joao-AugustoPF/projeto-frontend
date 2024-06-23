@@ -1,7 +1,6 @@
-/* sidebar.css */
 .dashboard-container {
     display: flex;
-    min-height: 100vh; /* Altura total da tela */
+    min-height: 100vh;
 }
 
 .second-container {
@@ -72,7 +71,7 @@
 .main-content {
     flex-grow: 1;
     padding: 20px;
-    background-color: #f8f9fa; /* Um fundo claro para o conteúdo principal */
+    background-color: #f8f9fa;
 }
 
 @keyframes slideDown {

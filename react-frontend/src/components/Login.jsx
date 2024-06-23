@@ -19,12 +19,12 @@ function Login() {
         const user = users[0];
         if (password === user.password) {
           console.log('Login bem-sucedido! Usuário:', user);
-          // Salvar usuário no Local Storage e marcar como logado
+
           localStorage.setItem('user', JSON.stringify(user));
           localStorage.setItem('isLoggedIn', 'true');
-          // Aqui você pode redirecionar o usuário para a página principal ou dashboard
+
           setErrorMessage('');
-          window.location.href = '/dashboard'; // Redireciona para o dashboard, por exemplo
+          window.location.href = '/dashboard';
         } else {
           setErrorMessage('Senha incorreta');
         }

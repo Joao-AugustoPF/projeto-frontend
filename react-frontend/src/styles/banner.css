@@ -5,12 +5,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0; /* Cor de fundo de fallback */
+    background-color: #f0f0f0;
   }
   
   .banner img {
     width: 100%;
     height: auto;
-    object-fit: cover; /* Mantém a imagem dentro do contêiner */
+    object-fit: cover;
   }
   

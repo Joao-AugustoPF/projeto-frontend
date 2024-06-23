@@ -1,26 +1,25 @@
-/* MainPage.css */
 .product-list {
     display: flex;
-    flex-wrap: wrap; /* Permite que os itens passem para a próxima linha */
-    justify-content: center; /* Centraliza os produtos horizontalmente */
-    gap: 20px; /* Adiciona espaço entre os produtos */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
     padding: 20px;
 }
 
 .product {
-    flex: 1 1 200px; /* Cada produto tentará ocupar pelo menos 200px */
+    flex: 1 1 200px;
     border: 1px solid #ccc;
     padding: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza o conteúdo do produto verticalmente */
+    align-items: center;
 }
 
 .product-image {
-    width: 100%; /* Faz a imagem preencher o container */
+    width: 100%;
     height: auto;
-    max-height: 150px; /* Limita a altura da imagem */
+    max-height: 150px;
 }
 
 .product-details {

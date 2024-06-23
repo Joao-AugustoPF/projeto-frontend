@@ -7,7 +7,6 @@ const ProfileDropdown = () => {
     const [isOpen, setIsOpen] = useState(false);
     const ref = useRef(null);
 
-    // Fechar o dropdown ao clicar fora
     useEffect(() => {
         function handleClickOutside(event) {
             if (ref.current && !ref.current.contains(event.target)) {
@@ -22,8 +21,8 @@ const ProfileDropdown = () => {
 
     const logout = () => {
         localStorage.removeItem('user');
-        setIsOpen(false); // Fechar o dropdown
-        navigate('/login'); // Redirecionar para a página de login
+        setIsOpen(false);
+        navigate('/login');
     };
 
     return (

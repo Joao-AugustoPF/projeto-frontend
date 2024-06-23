@@ -3,8 +3,6 @@
 import {Navigate, Outlet} from "react-router-dom"
 
 const useAuth = () => {
-	//get item from localstorage
-
 	let user
 
 	const _user = localStorage.getItem("user")
@@ -27,7 +25,7 @@ const useAuth = () => {
 
 const ProtectedRoutes = (props) => {
 	const {auth, role} = useAuth()
-	//if the role require  d is there or not
+	
 	if (props.roleRequired) {
 		return auth ? (
 			props.roleRequired === role ? (
