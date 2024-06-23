@@ -8,21 +8,6 @@
       "role": "master"
     }
   ],
-  "products": [
-    {
-      "name": "Produto 1",
-      "preco": "20",
-      "estoque": "5",
-      "imagePath": "public\\images\\image-1719101539123-526429580.jpg",
-      "id": "a9f8"
-    }
-  ],
-  "services": [
-    {
-      "id": "w85e",
-      "name": "serviço",
-      "preco": "12",
-      "imagePath": ""
-    }
-  ]
+  "products": [],
+  "services": []
 }
