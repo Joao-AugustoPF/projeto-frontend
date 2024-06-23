@@ -3,6 +3,7 @@ import '../styles/products-list.css';
 import axios from 'axios'
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'
+import { imageUrl } from '../utils/formatUrlImage';
 
 export default function ProductsList() {
     
@@ -18,17 +19,6 @@ export default function ProductsList() {
         setProducts(products.filter( product => product.id !== productId));
     }
     
-    // Função para remover "public\\" do caminho e preparar o caminho correto para o src da tag img
-    const formatImagePath = (path) => {
-        if (!path) return ''; //Verificação se o path está vazio
-        return path.replace('public\\', '');
-    };
-
-    const imageUrl = (imagePath) => {
-        const url = "http://localhost:3000/"
-        const path = formatImagePath(imagePath)
-        return `${url}${path}`
-    }
 
     useEffect(() => {
         const fetchProducts = async () => {

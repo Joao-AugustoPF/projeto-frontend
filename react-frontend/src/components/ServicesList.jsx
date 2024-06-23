@@ -2,6 +2,7 @@ import '../styles/serviceslist.css';
 import axios from 'axios'
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { imageUrl } from '../utils/formatUrlImage';
 
 export default function ServicesList() {
 
@@ -15,17 +16,6 @@ export default function ServicesList() {
     const handleDelete = async (serviceId) => {
         await axios.delete(`http://localhost:3000/services/${serviceId}`);
         setServices(services.filter( service => service.id !== serviceId));
-    }
-
-    const formatImagePath = (path) => {
-        if (!path) return '';
-        return path.replace('public\\', '')
-    }
-
-    const imageUrl = (imagePath) => {
-        const url = "http://localhost:3000/"
-        const path = formatImagePath(imagePath)
-        return `${url}${path}`
     }
 
     useEffect(() => {

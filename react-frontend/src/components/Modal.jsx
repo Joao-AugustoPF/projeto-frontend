@@ -1,19 +1,10 @@
 /* eslint-disable react/prop-types */
 import '../styles/modal.css';
+import { imageUrl } from '../utils/formatUrlImage';
 
 const Modal = ({ isOpen, onClose, product }) => {
     if (!isOpen) {
       return null;
-    }
-
-    const formatImagePath = (path) => {
-        return path.replace('public\\', '');
-    };
-
-    const imageUrl = (imagePath) => {
-        const url = "http://localhost:3000/"
-        const path = formatImagePath(imagePath)
-        return `${url}${path}`
     }
   
     return (

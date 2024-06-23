@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import '../styles/products-form.css'
 import axios from 'axios'
 import { useParams, useNavigate } from 'react-router-dom'
+import { imageUrl } from '../utils/formatUrlImage'
 
 const ProductsForm = () => {
     const { id } = useParams();
@@ -13,22 +14,6 @@ const ProductsForm = () => {
     const [imagePath, setImagePath] = useState('');
     const [edit, setEdit] = useState(false);
     const [submitted, setSubmitted] = useState(false);
-    
-    useEffect(() => {
-        
-        if (id) {
-            const fetchProducts = async () => {
-                const response = await axios.get(`http://localhost:3000/products/${id}`);
-                const product = response.data;
-                setName(product.name);
-                setPreco(product.preco);
-                setEstoque(product.estoque);
-                setImagePath(product.imagePath);
-                setEdit(true);
-            }
-            fetchProducts()
-        } 
-    }, [id])
     
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0]) 
@@ -43,7 +28,7 @@ const ProductsForm = () => {
         formData.append("image", selectedFile)
 
         try {
-            const response = await axios.post("http://localhost:3000/upload", formData, {
+            const response = await axios.post("http://localhost:3001/upload", formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -67,11 +52,11 @@ const ProductsForm = () => {
         e.preventDefault()
     
         let imagePathTemp = imagePath;
-
-        if(!edit) {
-            if (selectedFile){
+        if (selectedFile){
             imagePathTemp = await handleUploadChange();
         }
+
+        if(!edit) {
 
             const newProduct = {
                 name: name,
@@ -82,6 +67,7 @@ const ProductsForm = () => {
 
             await axios.post("http://localhost:3000/products", newProduct)
         } else {
+            
             const updatedProduct = {
                 name: name,
                 preco: preco,
@@ -97,7 +83,23 @@ const ProductsForm = () => {
 
         };
 
-        useEffect(() => { if (submitted) { navigate("/dashboard/listagem/produtos", { replace: true } ) }; }, [submitted, navigate] );
+        useEffect(() => {
+        
+            if (id) {
+                const fetchProducts = async () => {
+                    const response = await axios.get(`http://localhost:3000/products/${id}`);
+                    const product = response.data;
+                    setName(product.name);
+                    setPreco(product.preco);
+                    setEstoque(product.estoque);
+                    setImagePath(product.imagePath);
+                    setEdit(true);
+                }
+                fetchProducts()
+            } 
+        }, [id])
+
+        useEffect(() => { if (submitted) { navigate("/dashboard/listagem/produtos", { replace: true } ) } }, [submitted, navigate] );
     
     return (
     <>  
@@ -108,7 +110,12 @@ const ProductsForm = () => {
                 <input type="text" value={name} name="nome" onChange={(e) => setName(e.target.value)} required />
                 <label htmlFor="preco">Preço:</label>
                 <input type="number" value={preco} name="preco" onChange={(e) => setPreco(e.target.value)}  required />
-                <input type="file" onChange={handleFileChange}/>
+                {edit && (
+                    <div>
+                        <img style={{ width: '100px', height: '100px' }} alt={name} src={imageUrl(imagePath)}></img>
+                    </div>
+                )}
+                <input type="file" accept="image/*" onChange={handleFileChange}/>
                 <label htmlFor="estoque">Estoque:</label>
                 <input type="number" name="estoque" value={estoque} onChange={(e) => setEstoque(e.target.value)} required />
                 <input type="submit" value={edit ? "Salvar Alterações" : "Cadastrar"} />

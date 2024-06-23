@@ -1,13 +1,20 @@
 {
   "users": [
+    {
+      "id": "0994",
+      "name": "João",
+      "email": "joao@gmail.com",
+      "password": "123456",
+      "role": "master"
+    }
   ],
   "products": [
     {
-      "id": "c79d",
-      "name": "Banana",
-      "preco": "1",
-      "estoque": "213",
-      "imagePath": ""
+      "name": "Produto 1",
+      "preco": "20",
+      "estoque": "5",
+      "imagePath": "public\\images\\image-1719101539123-526429580.jpg",
+      "id": "a9f8"
     }
   ],
   "services": [

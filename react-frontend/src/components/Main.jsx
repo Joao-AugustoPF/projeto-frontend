@@ -4,6 +4,7 @@ import Product from './Product';
 import '../styles/MainPage.css';
 import BannerComponent from './Banner';
 import Modal from './Modal';
+import { imageUrl } from '../utils/formatUrlImage';
 
 const MainPage = () => {
     // Estado para armazenar os produtos
@@ -18,17 +19,6 @@ const MainPage = () => {
     const handleCloseModal = () => {
       setIsModalOpen(false);
     };
-
-    const formatImagePath = (path) => {
-        if (!path) return '';
-        return path.replace('public\\', '');
-    };
-
-    const imageUrl = (imagePath) => {
-        const url = "http://localhost:3000/"
-        const path = formatImagePath(imagePath)
-        return `${url}${path}`
-    }
 
     // Função para buscar produtos
     useEffect(() => {
