@@ -1,21 +1,19 @@
 {
-  "users": [
-  ],
+  "users": [],
   "products": [
     {
-      "id": "c79d",
-      "name": "Banana",
+      "name": "Produto3",
       "preco": "1",
-      "estoque": "213",
-      "imagePath": ""
+      "estoque": "1",
+      "id": "be11"
     }
   ],
   "services": [
     {
-      "id": "w85e",
-      "name": "serviço",
-      "preco": "12",
-      "imagePath": ""
+      "name": "Manutenção",
+      "preco": "20",
+      "imagePath": "public\\images\\image-1719110613995-220539939.JPG",
+      "id": "ba9b"
     }
   ]
 }

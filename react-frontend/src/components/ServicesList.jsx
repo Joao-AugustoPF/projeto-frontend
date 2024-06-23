@@ -9,7 +9,7 @@ export default function ServicesList() {
     const [services, setServices] = useState([]);
 
     const handleEdit = (serviceId) => {
-        navigate(`/dashboard/edit/${serviceId}`, { replace: true });
+        navigate(`/dashboard/editService/${serviceId}`, { replace: true });
     };
 
     const handleDelete = async (serviceId) => {

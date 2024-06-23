@@ -10,7 +10,7 @@ export default function ProductsList() {
     const [products, setProducts] = useState([]);
 
     const handleEdit = (productId) => {
-        navigate(`/dashboard/edit/${productId}`, { replace: true });
+        navigate(`/dashboard/editProduct/${productId}`, { replace: true });
     };
 
     const handleDelete = async (productId) => {

@@ -96,7 +96,7 @@ const ServicesForm = () => {
 
     };
 
-    useEffect(() => { if (submitted) { navigate("/dashboard/listagem/services", { replace: true } ) } }, [submitted, navigate] );
+    useEffect(() => { if (submitted) { navigate("/dashboard/listagem/servicos", { replace: true } ) } }, [submitted, navigate] );
 
     return (
         <>
