@@ -19,7 +19,7 @@
   width: 100%;
   position: relative;
   box-sizing: border-box;
-  overflow: hidden; /* Para garantir que o conteúdo não transborde */
+  overflow: hidden;
 }
 
 .modal-close-button {
@@ -40,7 +40,7 @@
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 8px; /* Para fazer a imagem combinar com os cantos arredondados do modal */
+  border-radius: 8px;
   box-sizing: border-box;
 }
 
@@ -55,7 +55,7 @@
 .modal-content button {
   margin-top: 20px;
   padding: 10px 20px;
-  background: red; /* Fundo vermelho */
+  background: red;
   color: white;
   border: none;
   border-radius: 4px;
