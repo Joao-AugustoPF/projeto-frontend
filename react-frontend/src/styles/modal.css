@@ -1,42 +1,69 @@
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .modal {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 500px;
-    width: 100%;
-    position: relative;
-  }
-  
-  .modal-close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: transparent;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-  
-  .modal-content {
-    margin-top: 20px;
-  }
-  
-  .modal-image {
-    width: 100%;
-    height: auto;
-    margin-top: 10px;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden; /* Para garantir que o conteúdo não transborde */
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-content {
+  margin-top: 20px;
+}
+
+.modal-banner {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px; /* Para fazer a imagem combinar com os cantos arredondados do modal */
+  box-sizing: border-box;
+}
+
+.modal-content h2 {
+  margin: 10px 0;
+}
+
+.modal-content p {
+  margin: 5px 0;
+}
+
+.modal-content button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: red; /* Fundo vermelho */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.modal-content button:hover {
+  background: darkred;
+}
