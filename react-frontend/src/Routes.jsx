@@ -25,7 +25,8 @@ const MainRoutes = () => (
 						<Route path="produtos" element={<ProductsForm />}/>
 						<Route path="servicos" element={<ServicesForm />} />
 					</Route>
-					<Route path="edit/:id" element={<ProductsForm />} />
+					<Route path="produtos/edit/:id" element={<ProductsForm />} />
+					<Route path="servicos/edit/:id" element={<ServicesForm />} />
 					<Route path="listagem">
 						<Route path="produtos" element={<ProductsList />} />
 						<Route path="servicos" element={<ServicesList />} />

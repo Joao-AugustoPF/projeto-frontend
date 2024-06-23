@@ -8,8 +8,8 @@ const ProductsForm = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [name, setName] = useState('');
-    const [preco, setPreco] = useState(null);
-    const [estoque, setEstoque] = useState(null);
+    const [preco, setPreco] = useState('');
+    const [estoque, setEstoque] = useState('');
     const [selectedFile, setSelectedFile] = useState(null);
     const [imagePath, setImagePath] = useState('');
     const [edit, setEdit] = useState(false);
@@ -84,20 +84,29 @@ const ProductsForm = () => {
         };
 
         useEffect(() => {
-        
             if (id) {
-                const fetchProducts = async () => {
-                    const response = await axios.get(`http://localhost:3000/products/${id}`);
-                    const product = response.data;
-                    setName(product.name);
-                    setPreco(product.preco);
-                    setEstoque(product.estoque);
-                    setImagePath(product.imagePath);
-                    setEdit(true);
+              const fetchProducts = async () => {
+                try {
+                  const response = await axios.get(`http://localhost:3000/products/${id}`);
+                  const product = response.data;
+        
+                  setName(product.name);
+                  setPreco(product.preco);
+                  setEstoque(product.estoque);
+                  setImagePath(product.imagePath);
+                  setEdit(true);
+                } catch (error) {
+                  if (error.response && error.response.status === 404) {
+                    navigate('/dashboard/listagem/produtos');
+                  } else {
+                    console.error('Erro ao buscar o produto:', error);
+                  }
                 }
-                fetchProducts()
-            } 
-        }, [id])
+              };
+        
+              fetchProducts();
+            }
+          }, [id, navigate]);
 
         useEffect(() => { if (submitted) { navigate("/dashboard/listagem/produtos", { replace: true } ) } }, [submitted, navigate] );
     

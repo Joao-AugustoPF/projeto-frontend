@@ -2,6 +2,7 @@ import '../styles/servicesform.css'
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { imageUrl } from '../utils/formatUrlImage';
 
 const ServicesForm = () => {
     const { id } = useParams();
@@ -13,28 +14,11 @@ const ServicesForm = () => {
     const [edit, setEdit] = useState(false);
     const [submitted, setSubmitted] = useState(false);
 
-
-    useEffect(() => {
-        
-        if (id) {
-            const fetchServices = async () => {
-                const response = await axios.get(`http://localhost:3000/services/${id}`);
-                const service = response.data;
-                setName(service.name);
-                setPreco(service.preco);
-                setImagePath(service.imagePath);
-                setEdit(true);
-            }
-            fetchServices()
-        }
-    }, [id]);
-
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0])
     }
 
     const handleUploadChange = async () => {
-
         if(!selectedFile) {
             alert("Selecione um arquivo!")
         }
@@ -56,7 +40,6 @@ const ServicesForm = () => {
         
     }
 
-
     const clearValues = () => {
         setPreco('');
         setName('');
@@ -69,11 +52,12 @@ const ServicesForm = () => {
 
         let imagePathTemp = imagePath
 
-        if(!edit) {
-            if (selectedFile) {
-                imagePathTemp = await handleUploadChange();
-            }
+        if (selectedFile) {
+            imagePathTemp = await handleUploadChange();
+        }
 
+        if(!edit) {
+            
             const newService = {
                 name: name,
                 preco: preco,
@@ -96,7 +80,29 @@ const ServicesForm = () => {
 
     };
 
-    useEffect(() => { if (submitted) { navigate("/dashboard/listagem/services", { replace: true } ) } }, [submitted, navigate] );
+    useEffect(() => {
+        if (id) {
+            const fetchServices = async () => {
+                try {
+                    const response = await axios.get(`http://localhost:3000/services/${id}`);
+                    const service = response.data;
+                    setName(service.name);
+                    setPreco(service.preco);
+                    setImagePath(service.imagePath);
+                    setEdit(true);
+                } catch (error) {
+                    if (error.response && error.response.status === 404) {
+                        navigate('/dashboard/listagem/servicos');
+                      } else {
+                        console.error('Erro ao buscar o produto:', error);
+                      }
+                }
+            }
+            fetchServices()
+        }
+    }, [id, navigate]);
+
+    useEffect(() => { if (submitted) { navigate("/dashboard/listagem/servicos", { replace: true } ) } }, [submitted, navigate] );
 
     return (
         <>
@@ -107,7 +113,12 @@ const ServicesForm = () => {
                     <input type="text" value={name} name="nome" onChange={(e) => setName(e.target.value)} required />
                     <label htmlFor="preco">Preço:</label>
                     <input type="number" value={preco} name="preco" onChange={(e) => setPreco(e.target.value)} required />
-                    <input type="file" onChange={handleFileChange} />
+                    {edit && (
+                        <div>
+                            <img style={{ width: '100px', height: '100px' }} alt={name} src={imageUrl(imagePath)}></img>
+                        </div>
+                    )}
+                    <input type="file" accept="image/*" onChange={handleFileChange} /> <br/>
                     <input type="submit" value={edit ? "Salvar Alterações" : "Cadastrar"} />
                 </form>
             </div>
