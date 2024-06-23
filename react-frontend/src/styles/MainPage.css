@@ -1,4 +1,4 @@
-.product-list {
+.product-list, .service-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -6,40 +6,81 @@
     padding: 20px;
 }
 
-.product {
-    flex: 1 1 200px;
+.product, .service {
+    flex: 1 1 calc(33.333% - 40px); /* 3 itens por linha com espaçamento */
     border: 1px solid #ccc;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.product-image {
+.product:hover, .service:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-image, .service-image {
     width: 100%;
     height: auto;
-    max-height: 150px;
+    max-height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
 }
 
-.product-details {
+.product-details, .service-details {
     width: 100%;
     text-align: center;
 }
 
-.product-name, .product-description, .product-price, .product-stock {
-    margin: 5px 0;
+.product-name, .service-name {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 10px 0;
 }
 
-.btn-buy {
-    padding: 8px 16px;
-    background-color: #28a745;
+.product-description, .service-description {
+    font-size: 1rem;
+    color: #666;
+    margin: 10px 0;
+}
+
+.product-price, .service-price {
+    font-size: 1.25rem;
+    color: #28a745;
+    margin: 10px 0;
+}
+
+.product-stock {
+    font-size: 1rem;
+    color: #666;
+    margin: 10px 0;
+}
+
+.btn-buy, .btn-hire {
+    padding: 10px 20px;
+    background-color: #007bff;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 15px;
+    transition: background-color 0.2s;
 }
 
-.btn-buy:hover {
-    background-color: #218838;
+.btn-buy:hover, .btn-hire:hover {
+    background-color: #0056b3;
+}
+
+/* Classe específica para centralizar os títulos no MainPage */
+.main-title {
+    text-align: center;
+    width: 100%;
+    margin: 20px 0;
+    font-size: 2rem;
+    color: #333;
 }

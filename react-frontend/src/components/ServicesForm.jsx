@@ -8,7 +8,7 @@ const ServicesForm = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [name, setName] = useState('');
-    const [preco, setPreco] = useState(null);
+    const [preco, setPreco] = useState('');
     const [selectedFile, setSelectedFile] = useState(null);
     const [imagePath, setImagePath] = useState('');
     const [edit, setEdit] = useState(false);

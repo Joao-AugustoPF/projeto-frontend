@@ -26,8 +26,6 @@ export default function ServicesList() {
         fetchServices()
     }, [])
 
-    console.log(services)
-
     return(
         <>
             <h1>Serviços</h1>

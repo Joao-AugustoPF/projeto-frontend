@@ -2,7 +2,7 @@
 import '../styles/modal.css';
 import { imageUrl } from '../utils/formatUrlImage';
 
-const Modal = ({ isOpen, onClose, product }) => {
+const ModalProduct = ({ isOpen, onClose, product }) => {
     if (!isOpen) {
       return null;
     }
@@ -25,4 +25,4 @@ const Modal = ({ isOpen, onClose, product }) => {
     );
   };
   
-  export default Modal;
+  export default ModalProduct;
