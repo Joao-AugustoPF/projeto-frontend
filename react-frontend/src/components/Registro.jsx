@@ -18,10 +18,10 @@ function Register() {
       if (users.length > 0) {
         setErrorMessage('Email já registrado');
       } else {
-        const newUser = { name, email, password };
+        const newUser = { name, email, password, role: "master" };
         await axios.post('http://localhost:3000/users', newUser);
         setSuccessMessage('Usuário registrado com sucesso');
-        
+
         setErrorMessage('');
         setName('');
         setEmail('');
