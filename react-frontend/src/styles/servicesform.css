@@ -11,6 +11,11 @@
     display: block;
     margin-bottom: 5px;
 }
+
+.container input {
+    display: block;
+}
+
 .container input[type="text"], input[type="number"] {
     width: 100%;
     padding: 8px;
@@ -30,8 +35,10 @@
 }
 .container input[type="submit"]:hover {
     background-color: #0056b3;
+    width: 100%;
+    margin-bottom: 20px;
 }
 .container input[type="file"] {
     font-size: 16px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
