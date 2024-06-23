@@ -53,7 +53,7 @@ export default function Root() {
                             </div>
                         )}
                     </li>
-                    <li className={getMenuItemClass("/settings")}><Link to="/settings">Settings</Link></li>
+                    <li className={getMenuItemClass("/dashboard/settings")}><Link to="/dashboard/settings">Settings</Link></li>
                 </ul>
             </div>
             <div className="main-content">

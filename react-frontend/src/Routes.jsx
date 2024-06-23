@@ -12,6 +12,7 @@ import Registro from "./components/Registro"
 import ProductsForm from "./components/ProductsForm"
 import ServicesForm from "./components/ServicesForm"
 import ServicesList from "./components/ServicesList"
+import Settings from "./components/Settings"
 
 const MainRoutes = () => (
 	<Routes>
@@ -29,6 +30,7 @@ const MainRoutes = () => (
 						<Route path="produtos" element={<ProductsList />} />
 						<Route path="servicos" element={<ServicesList />} />
 					</Route>
+					<Route path="settings" element={<Settings />} />
 				</Route>
 			</Route>
 		</Route>
