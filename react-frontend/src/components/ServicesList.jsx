@@ -36,7 +36,7 @@ export default function ServicesList() {
                         <th>Nome</th>
                         <th>Preço</th>
                         <th>Imagem</th>
-                        <th>Ações</th>
+                        <th style={{ minWidth: '150px' }}>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,7 +46,7 @@ export default function ServicesList() {
                             <td>{service.name}</td>
                             <td>R$ {service.preco}</td>
                             <td>
-                                <img src={imageUrl(service.imagePath)} alt={service.name} style={{ width: '100px', height: '100px' }} />
+                                <img src={imageUrl(service.imagePath)} alt={service.name} style={{ width: '100px', height: '80px' }} />
                             </td>
                             <td className="actions">
                                 <button onClick={() => handleEdit(service.id)}>Editar</button>

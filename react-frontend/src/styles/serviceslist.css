@@ -13,6 +13,7 @@
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
+    vertical-align: middle;
 }
 
 .table tr:nth-child(even) {
@@ -21,5 +22,32 @@
 
 .actions {
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 0;
+}
+.actions button {
+    padding: 10px 20px;
+    font-size: 16px;
+    height: 100%;
+    margin: 5px 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}
+
+.actions button:nth-child(1) {
+    background-color: #4CAF50; /* Verde para o botão de editar */
+    color: white;
+}
+
+.actions button:nth-child(2) {
+    background-color: #f44336; /* Vermelho para o botão de excluir */
+    color: white;
+}
+
+.actions button:hover {
+    opacity: 0.8; /* Adiciona um efeito de hover */
 }

@@ -39,7 +39,7 @@ export default function ProductsList() {
                         <th>Preço</th>
                         <th>Estoque</th>
                         <th>Imagem</th>
-                        <th>Ações</th>
+                        <th style={{ minWidth: '150px' }}>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,7 +50,7 @@ export default function ProductsList() {
                             <td>R$ {product.preco}</td>
                             <td>{product.estoque}</td>
                             <td>
-                                <img src={imageUrl(product.imagePath)} alt={product.name} style={{ width: '100px', height: '100px' }} />
+                                <img src={imageUrl(product.imagePath)} alt={product.name} style={{ width: '100px', height: '80px' }} />
                             </td>
                             <td className="actions">
                                 <button onClick={() => handleEdit(product.id)}>Editar</button>
