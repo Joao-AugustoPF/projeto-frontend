@@ -1,34 +1,5 @@
 {
-  "users": [
-    {
-      "id": "93c7",
-      "name": "Rhyan",
-      "email": "rhyanorben@gmail.com",
-      "password": "1234",
-      "role": "master"
-    }
-  ],
-  "products": [
-    {
-      "name": "1234",
-      "preco": "1",
-      "estoque": "1234",
-      "imagePath": "public\\images\\image-1719252729716-431764792.JPG",
-      "id": "2155"
-    }
-  ],
-  "services": [
-    {
-      "id": "e8b9",
-      "name": "1234",
-      "preco": "1",
-      "imagePath": "public\\images\\image-1719257966771-399247641.JPG"
-    },
-    {
-      "id": "8d1f",
-      "name": "1",
-      "preco": "1",
-      "imagePath": ""
-    }
-  ]
+  "users": [],
+  "products": [],
+  "services": []
 }
