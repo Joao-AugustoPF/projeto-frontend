@@ -6,8 +6,28 @@
       "email": "joao@gmail.com",
       "password": "123456",
       "role": "master"
+    },
+    {
+      "id": "5496",
+      "name": "teste",
+      "email": "rhyanorben@gmail.com",
+      "password": "1234",
+      "role": "master"
     }
   ],
-  "products": [],
-  "services": []
+  "products": [
+    {
+      "name": "Martelo",
+      "preco": "14",
+      "estoque": "12",
+      "id": "fbe3"
+    }
+  ],
+  "services": [
+    {
+      "name": "Maça",
+      "preco": "2",
+      "id": "aa4a"
+    }
+  ]
 }
