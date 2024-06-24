@@ -15,6 +15,27 @@
       "preco": "12",
       "estoque": "1",
       "imagePath": "public\\images\\image-1719266528492-181491183.png"
+    },
+    {
+      "id": "710a",
+      "name": "Manga",
+      "preco": "15",
+      "estoque": "5",
+      "imagePath": "public\\images\\image-1719266819408-608263274.jpg"
+    },
+    {
+      "id": "acbb",
+      "name": "Abacate",
+      "preco": "5",
+      "estoque": "5",
+      "imagePath": "public\\images\\image-1719266833628-476558423.jpg"
+    },
+    {
+      "id": "191e",
+      "name": "Uva ",
+      "preco": "25",
+      "estoque": "2",
+      "imagePath": "public\\images\\image-1719266842747-502131270.jpg"
     }
   ],
   "services": [
@@ -23,6 +44,24 @@
       "name": "manutenção",
       "preco": "1234",
       "imagePath": "public\\images\\image-1719266503843-618708689.png"
+    },
+    {
+      "id": "ea17",
+      "name": "Internet",
+      "preco": "100",
+      "imagePath": "public\\images\\image-1719266852225-833474895.webp"
+    },
+    {
+      "id": "384c",
+      "name": "Fornecimento de Luz",
+      "preco": "75",
+      "imagePath": "public\\images\\image-1719266862778-155989462.jpg"
+    },
+    {
+      "id": "e124",
+      "name": "Troca de Pneu",
+      "preco": "25",
+      "imagePath": "public\\images\\image-1719266877785-927061930.jpg"
     }
   ]
 }
