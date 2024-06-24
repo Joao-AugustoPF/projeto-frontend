@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import '../styles/login.css';
+import Navbar from './Navbar'
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -35,33 +36,41 @@ function Login() {
     }
   };
 
+  const handleRegisterRedirect = () => {
+    window.location.href = '/registro'
+  }
+
   return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Login</h2>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-        <div className="input-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="input-group">
-          <label htmlFor="password">Senha</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="login-button">Entrar</button>
-      </form>
+    <div>
+    <Navbar />
+      <div className="login-container">
+        <form className="login-form" onSubmit={handleSubmit}>
+          <h2>Login</h2>
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
+          <div className="input-group">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label htmlFor="password">Senha</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className="login-button">Entrar</button>
+          <button type="submit" className="register-button" onClick={handleRegisterRedirect}>Registre agora</button>
+        </form>
+      </div>
     </div>
   );
 }

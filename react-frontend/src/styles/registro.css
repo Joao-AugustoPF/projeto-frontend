@@ -57,3 +57,15 @@
   color: green;
   margin-bottom: 10px;
 }
+
+.redirect-button {
+  padding: 5px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 15px;
+  margin-left: 10px;
+}
