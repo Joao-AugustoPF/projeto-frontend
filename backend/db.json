@@ -1,5 +1,28 @@
 {
-  "users": [],
-  "products": [],
-  "services": []
+  "users": [
+    {
+      "id": "2aaa",
+      "name": "rhyanorben",
+      "email": "rhyanorben@gmail.com",
+      "password": "1234",
+      "role": "master"
+    }
+  ],
+  "products": [
+    {
+      "id": "9eec",
+      "name": "banana",
+      "preco": "12",
+      "estoque": "1",
+      "imagePath": "public\\images\\image-1719266528492-181491183.png"
+    }
+  ],
+  "services": [
+    {
+      "id": "305d",
+      "name": "manutenção",
+      "preco": "1234",
+      "imagePath": "public\\images\\image-1719266503843-618708689.png"
+    }
+  ]
 }

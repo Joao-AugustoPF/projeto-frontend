@@ -1,7 +1,7 @@
 
 import {Routes, Route} from "react-router-dom"
 
-import Root from "./routes/root"
+import Sidebar from "./components/Sidebar"
 import Main from "./components/Main"
 import Navbar from "./components/Navbar"
 import Login from "./components/Login"
@@ -19,7 +19,7 @@ const MainRoutes = () => (
 			<Route path="/" element={<Navbar />}>
 				<Route path="/" element={<Main />}></Route>
 				<Route path="/dashboard" element={<ProtectedRoutes roleRequired="master" />}>
-				<Route path="/dashboard" element={<Root />}>
+				<Route path="/dashboard" element={<Sidebar />}>
 					<Route path="" element={<WelcomePage />} />
 					<Route path="cadastro">
 						<Route path="produtos" element={<ProductsForm />}/>
