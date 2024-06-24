@@ -118,7 +118,7 @@ const ServicesForm = () => {
                             <img style={{ width: '100px', height: '100px' }} alt={name} src={imageUrl(imagePath)}></img>
                         </div>
                     )}
-                    <input type="file" accept="image/*" onChange={handleFileChange} /> <br/>
+                    <input type="file" accept="image/*" onChange={handleFileChange} />
                     <input type="submit" value={edit ? "Salvar Alterações" : "Cadastrar"} />
                 </form>
             </div>
