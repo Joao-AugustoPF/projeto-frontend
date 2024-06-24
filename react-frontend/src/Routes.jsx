@@ -13,6 +13,7 @@ import ProductsForm from "./components/ProductsForm"
 import ServicesForm from "./components/ServicesForm"
 import ServicesList from "./components/ServicesList"
 import Settings from "./components/Settings"
+import ErrorPage from "./components/ErrorPage"
 
 const MainRoutes = () => (
 	<Routes>
@@ -37,6 +38,7 @@ const MainRoutes = () => (
 		</Route>
         <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Registro />} />
+		<Route path="*" element={<ErrorPage />} />
 	</Routes>
 )
 
